@@ -1,0 +1,403 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Tibas Lanche – Cardápio</title>
+<style>
+:root{--bg:#101010;--card:#191919;--ink:#f7f4ef;--muted:#aaa39b;--line:#303030;--brand:#ff6a1a;--brand2:#ff9b38;--soft:#292019;--bad:#ff8c7d;box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);color-scheme:dark}
+:root[data-theme="light"]{--bg:#f7f5f2;--card:#fff;--ink:#211b17;--muted:#756b63;--line:#e7ded6;--brand:#e95b12;--brand2:#ff9b38;--soft:#fff0e4;--bad:#b42318;color-scheme:light}
+:root[data-theme="dark"]{color-scheme:dark}
+@media(prefers-reduced-motion:reduce){*,*::before,*::after{animation-duration:.01ms!important;animation-iteration-count:1!important;scroll-behavior:auto!important;transition-duration:.01ms!important}}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth;scroll-padding-top:90px}
+body{margin:0;background:radial-gradient(ellipse at 50% -20%,rgba(255,106,26,.13),transparent 48%),var(--bg);color:var(--ink);font-family:"Trebuchet MS", "Segoe UI", ui-sans-serif, system-ui, sans-serif;padding-bottom:110px;transition:background .3s,color .3s}
+.hd{position:sticky;top:env(safe-area-inset-top,0px);z-index:20;background:color-mix(in srgb,var(--card) 88%,transparent);backdrop-filter:blur(18px);border-bottom:1px solid var(--line);display:flex;align-items:center;gap:18px;padding:13px clamp(14px,3vw,32px)}
+.lg2{font-weight:950;font-size:21px;white-space:nowrap;color:var(--ink);text-decoration:none;letter-spacing:-.7px}.lg2:first-letter{color:var(--brand)}
+.hd nav{display:flex;gap:4px;align-items:center}.hd nav a,.hd nav button.dd{background:none;border:1px solid transparent;color:var(--muted);font-size:14px;font-weight:700;padding:9px 11px;border-radius:10px;cursor:pointer;text-decoration:none;font-family:inherit;transition:background .2s,color .2s,border-color .2s}
+.hd nav a:hover,.hd nav button.dd:hover{background:var(--soft);color:var(--brand);border-color:var(--line)}
+.dw{position:relative}.dm{position:absolute;top:calc(100% + 8px);left:0;min-width:160px;background:var(--card);border:1px solid var(--line);border-radius:14px;padding:6px;box-shadow:0 16px 40px #0008;display:none;animation:pop .18s ease-out}.dm.on{display:block}.dm a{display:block}
+.sep{width:1px;height:26px;background:var(--line)}.srch{flex:1;position:relative;min-width:0}.srch input{width:100%;padding:11px 14px 11px 40px;border-radius:13px;border:1px solid var(--line);background:var(--bg);color:var(--ink);font-size:14px;font-family:inherit;transition:border-color .2s,box-shadow .2s}.srch input:focus,input:focus,select:focus,textarea:focus{outline:none;border-color:var(--brand);box-shadow:0 0 0 3px #ff6a1a25}.srch span{position:absolute;left:14px;top:50%;transform:translateY(-50%);opacity:.65}
+.act{display:flex;gap:9px;align-items:center}.btn1,.btn2{padding:11px 17px;border-radius:12px;font-weight:850;font-size:14px;cursor:pointer;white-space:nowrap;font-family:inherit;text-decoration:none;transition:transform .2s,filter .2s,box-shadow .2s}.btn1{border:0;background:linear-gradient(120deg,var(--brand),var(--brand2));color:#1a100a;box-shadow:0 5px 18px #ff6a1a30}.btn1:hover,.bar button:hover{transform:translateY(-2px);filter:brightness(1.08);box-shadow:0 9px 25px #ff6a1a35}.btn2{background:transparent;color:var(--ink);border:1px solid var(--line)}
+.hero{position:relative;isolation:isolate;overflow:hidden;background:linear-gradient(115deg,#19110d 0%,#29170f 54%,#4a210f 100%);color:#fff;text-align:center;padding:clamp(36px,6vw,68px) 16px 48px;border-bottom:1px solid #ff6a1a35}
+.hero:before,.hero:after{content:"";position:absolute;z-index:-1;border-radius:50%;filter:blur(2px);pointer-events:none}.hero:before{width:280px;height:280px;left:-100px;top:-150px;background:#ff6a1a22;animation:float 8s ease-in-out infinite}.hero:after{width:240px;height:240px;right:-80px;bottom:-170px;background:#ff9b3820;animation:float 10s ease-in-out infinite reverse}
+.hero .lg{font-size:52px;line-height:1;display:inline-grid;place-items:center;width:82px;height:82px;border-radius:24px;background:#ff6a1a16;border:1px solid #ff9b3845;box-shadow:0 0 45px #ff6a1a15;animation:arrive .7s cubic-bezier(.2,.8,.2,1) both}
+.hero h1{font-family:Impact, "Arial Narrow", "Trebuchet MS", sans-serif;margin:18px 0 8px;font-size:clamp(30px,5vw,46px);line-height:1.05;letter-spacing:-1.6px;font-weight:950}.hero p{margin:0;color:#e7cbbb;font-size:15px;letter-spacing:.15px}
+main{max-width:900px;margin:0 auto;padding:24px clamp(14px,3vw,28px)}
+.tabs{display:flex;gap:8px;overflow-x:auto;padding:4px 2px 14px;margin-bottom:8px;scrollbar-width:thin;scrollbar-color:var(--brand) transparent}.tabs button{flex:none;padding:10px 16px;border-radius:11px;border:1px solid var(--line);background:var(--card);color:var(--muted);font-size:14px;font-weight:750;cursor:pointer;transition:all .2s}.tabs button:hover{color:var(--brand);border-color:#ff6a1a70;transform:translateY(-1px)}.tabs button.on{background:var(--brand);color:#17100b;border-color:var(--brand);box-shadow:0 5px 18px #ff6a1a24}
+.item{display:flex;gap:16px;align-items:center;background:linear-gradient(135deg,var(--card),color-mix(in srgb,var(--card) 90%,var(--brand)));border:1px solid var(--line);border-radius:17px;padding:15px;margin-top:12px;box-shadow:0 4px 15px #0000000b;animation:arrive .4s both;transition:transform .22s,border-color .22s,box-shadow .22s}.item:hover{transform:translateY(-3px);border-color:#ff6a1a65;box-shadow:0 12px 30px #00000025}.item .em{font-size:38px;width:76px;height:76px;display:flex;align-items:center;justify-content:center;background:var(--soft);border:1px solid #ff6a1a20;border-radius:14px;flex:none}.item .t{flex:1;min-width:0}.item b{font-family:"Trebuchet MS", "Segoe UI", sans-serif;font-size:16px;letter-spacing:-.2px}.item p{margin:5px 0 8px;color:var(--muted);font-size:13px;line-height:1.5}.item .pr{font-weight:900;color:var(--brand);font-size:16px}
+.qty{display:flex;align-items:center;gap:10px}.qty button{width:36px;height:36px;border-radius:11px;border:0;background:var(--brand);color:#1a100a;font-size:21px;font-weight:850;cursor:pointer;transition:transform .15s,filter .15s}.qty button:hover{transform:scale(1.07);filter:brightness(1.1)}.qty button.m{background:var(--soft);color:var(--ink);border:1px solid var(--line)}.qty span{min-width:18px;text-align:center;font-weight:800}
+.bar{position:fixed;left:0;right:0;bottom:0;padding:12px 16px calc(12px + env(safe-area-inset-bottom,0px));background:color-mix(in srgb,var(--card) 90%,transparent);backdrop-filter:blur(18px);border-top:1px solid var(--line);display:none;z-index:25;animation:slideup .25s ease-out}.bar button{width:100%;max-width:850px;display:flex;justify-content:space-between;align-items:center;margin:0 auto;padding:16px 19px;border:0;border-radius:14px;background:linear-gradient(120deg,var(--brand),var(--brand2));color:#1a100a;font-size:15px;font-weight:900;cursor:pointer;transition:transform .2s,box-shadow .2s}
+dialog{border:1px solid var(--line);border-radius:20px;background:var(--card);color:var(--ink);padding:22px;width:min(480px,94vw);max-height:90vh;box-shadow:0 24px 80px #0009;animation:arrive .25s ease-out}dialog::backdrop{background:rgba(0,0,0,.72);backdrop-filter:blur(5px)}dialog h3{margin:0 0 16px;font-size:22px;letter-spacing:-.5px}label{display:block;font-weight:750;font-size:13px;margin:14px 0 6px;color:var(--muted)}input,select,textarea{width:100%;padding:12px;border:1px solid var(--line);border-radius:11px;background:var(--bg);color:var(--ink);font-size:15px;font-family:inherit;transition:border-color .2s,box-shadow .2s}.sum{background:var(--soft);border:1px solid var(--line);border-radius:13px;padding:12px 14px;font-size:14px;line-height:1.8}.sum .tt{font-weight:900;font-size:17px;border-top:1px solid var(--line);margin-top:8px;padding-top:9px;display:flex;justify-content:space-between;color:var(--brand)}.sum .r{display:flex;justify-content:space-between;gap:12px}.err{color:var(--bad);font-size:14px;min-height:18px;margin:8px 0 0}.row{display:flex;gap:10px;margin-top:16px}.row button{flex:1;padding:13px;border:0;border-radius:11px;font-size:15px;font-weight:850;cursor:pointer;transition:transform .2s,filter .2s}.row button:hover{transform:translateY(-1px);filter:brightness(1.08)}.row .c{background:var(--soft);color:var(--ink);border:1px solid var(--line)}.row .s{background:#20a464;color:white}
+body::before{content:"";position:fixed;inset:0 0 auto;height:env(safe-area-inset-top,0px);background:var(--card);z-index:30}footer{text-align:center;color:var(--muted);font-size:12px;padding:26px 16px;border-top:1px solid var(--line);margin-top:20px}
+@keyframes arrive{from{opacity:0;transform:translateY(12px)}to{opacity:1;transform:translateY(0)}}@keyframes slideup{from{opacity:0;transform:translateY(16px)}to{opacity:1;transform:translateY(0)}}@keyframes pop{from{opacity:0;transform:translateY(-5px) scale(.98)}to{opacity:1;transform:translateY(0) scale(1)}}@keyframes float{0%,100%{transform:translate(0,0)}50%{transform:translate(18px,12px)}}@media(max-width:860px){.hd{flex-wrap:wrap;gap:8px 10px;padding:10px 14px}.hd nav{order:3;flex-wrap:wrap}.sep{display:none}.srch{order:4;flex-basis:100%}.act{margin-left:auto}.act a.btn2{display:none}}@media(max-width:520px){.hd nav a,.hd nav button.dd{padding:7px 8px;font-size:13px}.lg2{font-size:19px}.hero{padding:34px 14px 38px}.hero .lg{width:70px;height:70px;font-size:44px}.item{gap:10px;padding:11px;border-radius:14px}.item .em{width:55px;height:58px;font-size:30px;border-radius:11px}.item b{font-size:15px}.item p{font-size:12px}.item .pr{font-size:15px}.qty{gap:6px}.qty button{width:32px;height:34px;border-radius:10px}.qty span{min-width:14px;font-size:14px}main{padding-top:16px}}@media(prefers-reduced-motion:reduce){.hero:before,.hero:after{animation:none}}
+
+/* Comprovante imprimível */
+.receipt-tools{display:flex;gap:8px;flex-wrap:wrap;margin-top:12px}
+.receipt-tools button{flex:1;min-width:130px;padding:12px;border:1px solid var(--line);border-radius:10px;background:var(--soft);color:var(--ink);font:800 14px inherit;cursor:pointer}
+.receipt-tools .print-receipt{background:var(--brand);border-color:var(--brand);color:#1a100a}
+.receipt-tools .share-receipt{background:#20a464;border-color:#20a464;color:#fff}
+.dl{display:inline-block;margin-top:10px;padding:11px 16px;border-radius:10px;background:var(--soft);border:1px solid var(--line);color:var(--ink);font-weight:800;font-size:14px;text-decoration:none}
+.receipt-preview{margin-top:14px;border:1px dashed var(--line);border-radius:12px;padding:12px;background:var(--bg)}
+.receipt{width:100%;max-width:320px;margin:0 auto;background:#fff;color:#171717;padding:18px 15px;font:12px/1.45 Arial,Helvetica,sans-serif;border:1px solid #ddd}
+.receipt *{box-sizing:border-box}
+.receipt-head{text-align:center;border-bottom:1px dashed #777;padding-bottom:12px;margin-bottom:10px}
+.receipt-brand{font-size:20px;line-height:1.1;font-weight:900;letter-spacing:.4px}
+.receipt-sub{font-size:10px;color:#555;margin-top:5px}
+.receipt-title{font-weight:900;text-align:center;font-size:13px;margin:10px 0;text-transform:uppercase;letter-spacing:1px}
+.receipt-meta{font-size:11px;margin:7px 0}
+.receipt-line{display:flex;justify-content:space-between;gap:10px;margin:5px 0}
+.receipt-line span:first-child{min-width:0;overflow-wrap:anywhere}
+.receipt-rule{border-top:1px dashed #777;margin:10px 0}
+.receipt-total{font-weight:900;font-size:15px;display:flex;justify-content:space-between;gap:10px;margin-top:9px}
+.receipt-footer{text-align:center;font-size:10px;color:#444;margin-top:14px;border-top:1px dashed #777;padding-top:10px}
+@media print{
+  @page{size:80mm auto;margin:4mm}
+  body>*{display:none!important}
+  body{display:block!important;background:#fff!important;color:#111!important;padding:0!important;margin:0!important}
+  #dlg{display:none!important}
+  body.receipt-printing #printArea{display:block!important}
+  #printArea{display:block!important;position:static!important;width:72mm!important;margin:0!important;padding:0!important}
+  #printArea .receipt{width:100%!important;max-width:none!important;border:0!important;padding:0!important;margin:0!important;font-size:11px!important}
+}
+
+</style>
+</head>
+<body>
+<header class="hd">
+  <a class="lg2" href="#" id="home">🍔 Tibas Lanche</a>
+  <nav>
+    <a href="#" data-go="Hambúrguer">Cardápio</a>
+    <a href="#" data-go="Combos">Combos</a>
+    <a href="#" data-go="Kits">Kits</a>
+    <div class="dw"><button class="dd" id="dd" type="button">Mais ▾</button>
+      <div class="dm" id="dm"><a href="#" data-go="Porções">Porções</a><a href="#" data-go="Bebidas">Bebidas</a><a href="#" data-go="Adicionais">Adicionais</a></div></div>
+  </nav>
+  <div class="sep"></div>
+  <div class="srch"><span>🔍</span><input id="q" type="search" placeholder="Pesquisar no cardápio…"></div>
+  <div class="act"><button class="btn2" id="tema" type="button" aria-label="Alternar tema" title="Alternar tema">☼ Tema</button><a class="btn2" target="_blank" rel="noopener" href="https://wa.me/5517988000846">WhatsApp</a><button class="btn1" id="pedir" type="button">Pedir agora</button></div>
+</header>
+
+<div class="hero">
+  <div class="lg">🍔</div>
+  <h1>Tibas Lanche</h1>
+  <p>Escolha seus lanches e peça pelo WhatsApp</p>
+</div>
+
+<main>
+  <div class="tabs" id="tabs"></div>
+  <div id="menu"></div>
+</main>
+<footer>Tibas Lanche · Pedido enviado direto para o nosso WhatsApp</footer>
+
+<div class="bar" id="bar"><button id="abrir"><span id="bQtd">0 itens</span><span>Ver pedido · <span id="bTot">R$ 0,00</span></span></button></div>
+
+<dialog id="dlg">
+  <h3>Finalizar pedido</h3>
+  <div class="sum" id="resumo"></div>
+
+  <label for="nome">Seu nome</label>
+  <input id="nome" type="text" placeholder="Como podemos te chamar?" autocomplete="name">
+
+  <label for="tipo">Como deseja receber?</label>
+  <select id="tipo"><option value="entrega">Entrega</option><option value="retirada">Retirar no balcão</option></select>
+
+  <div id="endBox">
+    <label for="end">Endereço de entrega</label>
+    <input id="end" type="text" placeholder="Rua, número, bairro" autocomplete="street-address">
+  </div>
+
+  <label for="pag">Forma de pagamento</label>
+  <select id="pag"><option>Pix</option><option>Cartão de débito</option><option>Cartão de crédito</option><option>Dinheiro</option></select>
+
+  <div id="trocoBox" hidden>
+    <label for="troco">Troco para quanto?</label>
+    <input id="troco" type="text" inputmode="decimal" placeholder="Ex.: 50 (ou deixe vazio)">
+  </div>
+
+  <label for="obs">Observações</label>
+  <textarea id="obs" rows="2" placeholder="Ex.: sem cebola, molho à parte"></textarea>
+
+  <p class="err" id="err"></p>
+  <p id="lk" hidden style="margin:10px 0 0;font-weight:700"><a id="lkA" target="_blank" rel="noopener" style="color:#1fa855">👉 Toque aqui para abrir o WhatsApp</a></p>
+  <div id="receiptControls" hidden>
+    <div class="receipt-tools">
+      <button type="button" class="share-receipt" id="compartilharComprovante">📤 Compartilhar comprovante</button>
+      <button type="button" class="print-receipt" id="imprimirComprovante">🖨️ Imprimir comprovante</button>
+      <button type="button" id="atualizarComprovante">Atualizar comprovante</button>
+    </div>
+    <div class="receipt-preview"><div id="receiptPreview"></div></div>
+    <div id="imgBox" class="receipt-preview" style="text-align:center" hidden>
+      <p id="dica" style="margin:0 0 10px;font-size:14px;color:var(--muted)"></p>
+      <img id="imgComp" alt="Comprovante do pedido" style="max-width:100%;border-radius:8px;border:1px solid var(--line)">
+      <br><a id="baixarComp" class="dl" download="comprovante-tibas-lanche.png" href="#">⬇️ Salvar imagem</a>
+    </div>
+  </div>
+  <div class="row"><button class="c" id="voltar">Voltar</button><button class="s" id="enviar">Enviar pedido</button></div>
+</dialog>
+<div id="printArea" hidden aria-hidden="true"></div>
+
+<script>
+(function(){
+  // ====== CONFIGURE AQUI ======
+  var WHATSAPP = "5517988000846";        // número com DDI e DDD, só dígitos. Ex.: "5517999999999"
+  var TAXA_ENTREGA = 0;     // valor da entrega em reais (0 = sem taxa)
+  var MENU = [
+    {cat:"Salsichas",itens:[
+      {id:1,nome:"Fuscão",desc:"Pão, 1 salsicha, milho, batata palha, salada, molho",preco:10,em:"🌭"},
+      {id:2,nome:"Saveiro",desc:"Pão, 2 salsichas, mussarela, presunto, milho, bacon, batata palha, salada, molho",preco:17,em:"🌭"}]},
+    {cat:"Hambúrguer",itens:[
+      {id:3,nome:"Uno",desc:"Pão, hambúrguer, presunto, mussarela, milho, salada, molho",preco:17,em:"🍔"},
+      {id:4,nome:"Marea",desc:"Pão, hambúrguer, mussarela, presunto, milho, bacon, batata palha, salada, molho",preco:22,em:"🍔"},
+      {id:5,nome:"Golf",desc:"Pão, hambúrguer, mussarela, presunto, ovo, milho, batata palha, salada, molho",preco:21,em:"🍔"},
+      {id:6,nome:"Astra",desc:"Pão, hambúrguer, mussarela, presunto, milho, batata palha, salada, molho",preco:20,em:"🍔"},
+      {id:7,nome:"D20",desc:"Pão, 2 hambúrgueres, presunto, mussarela, ovo, batata palha, salada, molho",preco:23,em:"🍔"},
+      {id:8,nome:"Zafira",desc:"Pão, 2 hambúrgueres, presunto, mussarela, batata palha, ovo, salsicha, milho, salada, molho",preco:26,em:"🍔"},
+      {id:9,nome:"Vectra",desc:"Pão, hambúrguer, mussarela, presunto, milho, bacon, ovo, salsicha, batata palha, salada, molho",preco:25,em:"🍔"}]},
+    {cat:"Junior",itens:[
+      {id:10,nome:"JR 2",desc:"Pão, 2 hambúrgueres, 2 cheddar, tomate, molho",preco:20,em:"🍔"},
+      {id:11,nome:"JR 3",desc:"Pão, 2 hambúrgueres, 2 cheddar, bacon, salada, molho",preco:20,em:"🍔"},
+      {id:12,nome:"JR 5",desc:"Pão, 2 hambúrgueres, 2 mussarela, tomate, molho",preco:20,em:"🍔"},
+      {id:13,nome:"JR 6",desc:"Pão, 2 hambúrgueres, 2 mussarela, bacon, salada, molho",preco:20,em:"🍔"}]},
+    {cat:"Cheddar",itens:[
+      {id:14,nome:"G3",desc:"Pão, 2 hambúrgueres, 2 cheddar, bacon, molho",preco:20,em:"🧀"},
+      {id:15,nome:"G5",desc:"Pão, 3 hambúrgueres, 3 cheddar, bacon, molho",preco:25,em:"🧀"},
+      {id:16,nome:"Cinderela",desc:"Pão, hambúrguer, 2 cheddar, catupiry, salada, bacon, molho",preco:25,em:"🧀"},
+      {id:17,nome:"Fenômeno",desc:"Pão, 3 hambúrgueres, 3 cheddar, catupiry, bacon, batata palha, ovos, salada, molho",preco:32,em:"🧀"},
+      {id:18,nome:"Gladiador",desc:"Pão, 4 hambúrgueres, 4 cheddar, bacon, salada, molho",preco:32,em:"🧀"},
+      {id:19,nome:"Burguer",desc:"Pão, hambúrguer, cheddar, bacon, salada e molho",preco:17,em:"🧀"}]},
+    {cat:"Filé",itens:[
+      {id:20,nome:"Blazer",desc:"Pão, contra filé, mussarela, presunto, milho, bacon, ovo, salsicha, batata palha, salada",preco:35,em:"🥩"},
+      {id:21,nome:"Ranger",desc:"Pão, contra filé, mussarela, ovo, salada, bacon",preco:32,em:"🥩"},
+      {id:22,nome:"F1000",desc:"Pão, contra filé, mussarela, cebola e tomate",preco:27,em:"🥩"}]},
+    {cat:"Frango",itens:[
+      {id:23,nome:"Ômega",desc:"Pão, frango, mussarela, presunto, milho, bacon, ovo, salsicha, batata palha, salada, molho",preco:28,em:"🍗"},
+      {id:24,nome:"Parati",desc:"Pão, frango, mussarela, presunto, bacon, milho, batata palha, salada, molho",preco:27,em:"🍗"},
+      {id:25,nome:"Fiesta",desc:"Pão, frango, mussarela, presunto, milho, batata palha, salada, molho",preco:26,em:"🍗"}]},
+    {cat:"Gourmet",itens:[
+      {id:26,nome:"Gourmet 1",desc:"Pão de brioche, hambúrguer de costela 150g, cheddar, alface americano, cebola roxa, ketchup e maionese grill",preco:28,em:"👑"},
+      {id:27,nome:"Gourmet 2",desc:"Pão de brioche, hambúrguer de costela 150g, cheddar, alface americano, cebola roxa, batata palha, bacon, ketchup e maionese grill",preco:32,em:"👑"},
+      {id:28,nome:"Gourmet 3",desc:"Pão de brioche, hambúrguer de costela 150g, cheddar, bacon, ketchup e maionese grill",preco:28,em:"👑"},
+      {id:29,nome:"Gourmet Duplo",desc:"Pão de brioche, 2 hambúrgueres de costela 150g, cheddar, alface americano, cebola roxa, ketchup e maionese grill",preco:39,em:"👑"}]},
+    {cat:"Combos",itens:[
+      {id:30,nome:"Qualquer lanche + batata e Coca",desc:"Adicione ao seu lanche: batata frita + Coca-Cola lata (por mais)",preco:13.9,em:"🎉"},
+      {id:31,nome:"Combo 2 Burger",desc:"2 lanches Burger",preco:35,em:"🎉"},
+      {id:32,nome:"Combo 3 X-Tudo",desc:"3 X-Tudo + 1 refrigerante",preco:80,em:"🎉"},
+      {id:33,nome:"Mega 5",desc:"5 lanches bacon cheddar + 400g de batata com bacon e catupiry",preco:100,em:"🎉"},
+      {id:34,nome:"Kit Econômico",desc:"1 Coca-Cola 2L + 4 lanches (pão, hambúrguer, cheddar, bacon, salada e molho)",preco:75,em:"🎉"},
+      {id:35,nome:"Kit Vectra",desc:"Vectra + batata palito + Coca-Cola lata",preco:35,em:"🎉"},
+      {id:36,nome:"Promoção Vectra + G5",desc:"1 Vectra + 1 G5 + mini batata grátis",preco:50,em:"🎉"},
+      {id:37,nome:"Megabig",desc:"600g de batata recheada + 2 Uno + 1 Poty 2L",preco:80,em:"🎉"},
+      {id:38,nome:"Big Batata 1kg (média)",desc:"Batata com bacon, catupiry ou cheddar",preco:50,em:"🎉"},
+      {id:39,nome:"Big Batata 1kg (grande)",desc:"Batata com bacon, catupiry ou cheddar",preco:60,em:"🎉"}]},
+    {cat:"Kits",itens:[
+      {id:40,nome:"Kit JR-2",desc:"JR 2 + Coca-Cola lata + batata palito",preco:30,em:"🥤"},
+      {id:41,nome:"Kit JR-3",desc:"JR 3 + Coca-Cola lata + batata palito",preco:30,em:"🥤"},
+      {id:42,nome:"Kit JR-5",desc:"JR 5 + Coca-Cola lata + batata palito",preco:30,em:"🥤"},
+      {id:43,nome:"Kit JR-6",desc:"JR 6 + Coca-Cola lata + batata palito",preco:30,em:"🥤"},
+      {id:44,nome:"Kit G-4",desc:"1 hambúrguer, 2 cheddar, catupiry, salada e bacon + Coca lata + batata",preco:32,em:"🥤"},
+      {id:45,nome:"Kit G-5",desc:"G5 + Coca-Cola lata + batata palito",preco:35,em:"🥤"},
+      {id:46,nome:"Kit Gladiador",desc:"Gladiador + nuggets + batata + 1 Coca-Cola litro",preco:50,em:"🥤"},
+      {id:47,nome:"Kit Fenômeno",desc:"1 Fenômeno + mini batata + 1 Coca-Cola litro",preco:50,em:"🥤"},
+      {id:48,nome:"Kit Namorados 1",desc:"1 JR 3 + 1 JR 5 + 1 Coca-Cola litro",preco:50,em:"🥤"},
+      {id:49,nome:"Kit Namorados 2",desc:"1 G5 + 1 Vectra + mini batata + 1 Coca-Cola litro",preco:55,em:"🥤"},
+      {id:50,nome:"Kit Dupla 1",desc:"1 Marea + 1 Astra + refri 600ml grátis",preco:44,em:"🥤"},
+      {id:51,nome:"Kit Dupla 2",desc:"3 G5 + refri 600ml grátis",preco:70,em:"🥤"},
+      {id:52,nome:"Kit Dupla 3",desc:"1 JR 3 + 1 JR 2 + refri 600ml grátis",preco:40,em:"🥤"},
+      {id:53,nome:"Kit Dupla 4",desc:"2 Marea + refri 600ml grátis",preco:45,em:"🥤"},
+      {id:54,nome:"Kit Dupla 5",desc:"2 Uno + refri 600ml grátis",preco:36,em:"🥤"},
+      {id:55,nome:"Kit Dupla 6",desc:"1 Marea + 1 JR 2 + refri 600ml grátis",preco:42,em:"🥤"},
+      {id:56,nome:"Kit Dupla 7",desc:"2 Vectra + refri 600ml grátis",preco:50,em:"🥤"},
+      {id:57,nome:"Kit Dupla 8",desc:"1 G5 + 1 JR 3 + refri 600ml grátis",preco:50,em:"🥤"},
+      {id:58,nome:"Kit Dupla 9",desc:"2 Vectra + 1 batata pequena",preco:50,em:"🥤"}]},
+    {cat:"Porções",itens:[
+      {id:59,nome:"Filé de frango acebolado c/ fritas (G)",desc:"Porção grande",preco:65,em:"🍟"},
+      {id:60,nome:"Contra filé acebolado c/ fritas (G)",desc:"Porção grande",preco:95,em:"🍟"},
+      {id:61,nome:"Isca de frango (G)",desc:"Porção grande",preco:80,em:"🍟"},
+      {id:62,nome:"Isca de frango c/ catupiry e fritas (G)",desc:"Porção grande",preco:75,em:"🍟"},
+      {id:63,nome:"Big batata (G)",desc:"Porção grande",preco:60,em:"🍟"},
+      {id:64,nome:"Batata frita P",desc:"Porção pequena",preco:11,em:"🍟"},
+      {id:65,nome:"Batata frita M",desc:"Porção média",preco:16,em:"🍟"},
+      {id:66,nome:"Batata frita G",desc:"Porção grande",preco:21,em:"🍟"},
+      {id:67,nome:"Frango à passarinho (G)",desc:"Porção grande",preco:65,em:"🍟"},
+      {id:68,nome:"Filé de tilápia c/ fritas (G)",desc:"Porção grande",preco:80,em:"🍟"}]},
+    {cat:"Bebidas",itens:[
+      {id:69,nome:"Refrigerante lata",desc:"",preco:6,em:"🥤"},
+      {id:70,nome:"Cerveja lata",desc:"",preco:6,em:"🥤"},
+      {id:71,nome:"Refrigerante 1 L",desc:"",preco:10,em:"🥤"},
+      {id:72,nome:"Coca-Cola 2 L",desc:"",preco:15,em:"🥤"},
+      {id:73,nome:"Guaraná 2 L",desc:"",preco:10,em:"🥤"},
+      {id:74,nome:"Suco 1 litro",desc:"",preco:15,em:"🥤"}]},
+    {cat:"Adicionais",itens:[
+      {id:75,nome:"Catupiry",desc:"",preco:6,em:"➕"},
+      {id:76,nome:"Hambúrguer na brasa",desc:"",preco:5,em:"➕"},
+      {id:77,nome:"Hambúrguer caseiro",desc:"",preco:7,em:"➕"},
+      {id:78,nome:"Bacon",desc:"",preco:5,em:"➕"},
+      {id:79,nome:"Maionese caseira",desc:"",preco:2,em:"➕"},
+      {id:80,nome:"Hambúrguer caseiro 150g",desc:"",preco:10,em:"➕"}]}
+  ];
+  // =============================
+
+  var $=function(i){return document.getElementById(i)};
+  var cart={}, catAtual=MENU[0].cat, todos={}, busca="";
+  MENU.forEach(function(c){c.itens.forEach(function(i){todos[i.id]=i})});
+  function brl(v){return "R$ "+v.toFixed(2).replace(".",",")}
+  function esc(s){var d=document.createElement("div");d.textContent=s;return d.innerHTML}
+  function total(){return Object.keys(cart).reduce(function(a,id){return a+cart[id]*todos[id].preco},0)}
+  function qtd(){return Object.keys(cart).reduce(function(a,id){return a+cart[id]},0)}
+
+  function renderTabs(){
+    $("tabs").innerHTML=MENU.map(function(c){return "<button class='"+(c.cat===catAtual?"on":"")+"' data-c='"+c.cat+"'>"+c.cat+"</button>"}).join("");
+  }
+  function renderMenu(){
+    var c=MENU.filter(function(x){return x.cat===catAtual})[0];var lista=c.itens;
+    if(busca){lista=Object.keys(todos).map(function(k){return todos[k]}).filter(function(i){return (i.nome+" "+i.desc).toLowerCase().indexOf(busca)>-1});
+      if(!lista.length){$("menu").innerHTML="<p style='text-align:center;color:var(--muted);padding:30px'>Nenhum item encontrado.</p>";return}}
+    $("menu").innerHTML=lista.map(function(i){var n=cart[i.id]||0;
+      return "<div class='item' style='animation-delay:"+((lista.indexOf(i)%8)*35)+"ms'><div class='em'>"+i.em+"</div><div class='t'><b>"+esc(i.nome)+"</b><p>"+esc(i.desc)+"</p><span class='pr'>"+brl(i.preco)+"</span></div>"+
+      "<div class='qty'>"+(n?"<button class='m' data-a='-' data-id='"+i.id+"'>−</button><span>"+n+"</span>":"")+"<button data-a='+' data-id='"+i.id+"'>+</button></div></div>";}).join("");
+  }
+  function renderBar(){
+    var q=qtd();$("bar").style.display=q?"block":"none";
+    $("bQtd").textContent=q+(q===1?" item":" itens");$("bTot").textContent=brl(total());
+  }
+  function renderResumo(){
+    var h=Object.keys(cart).map(function(id){var i=todos[id];
+      return "<div class='r'><span>"+cart[id]+"× "+esc(i.nome)+"</span><span>"+brl(cart[id]*i.preco)+"</span></div>"}).join("");
+    var taxa=$("tipo").value==="entrega"?TAXA_ENTREGA:0;
+    if(taxa>0)h+="<div class='r'><span>Taxa de entrega</span><span>"+brl(taxa)+"</span></div>";
+    h+="<div class='tt'><span>Total</span><span>"+brl(total()+taxa)+"</span></div>";
+    $("resumo").innerHTML=h;
+  }
+  function refresh(){renderMenu();renderBar()}
+
+  $("tabs").addEventListener("click",function(e){var b=e.target.closest("button");if(!b)return;catAtual=b.dataset.c;renderTabs();renderMenu()});
+  $("menu").addEventListener("click",function(e){
+    var b=e.target.closest("button");if(!b)return;var id=b.dataset.id;
+    if(b.dataset.a==="+")cart[id]=(cart[id]||0)+1;
+    else{cart[id]=(cart[id]||0)-1;if(cart[id]<=0)delete cart[id]}
+    refresh();
+  });
+  $("abrir").onclick=function(){renderResumo();$("err").textContent="";$("dlg").showModal()};
+  $("voltar").onclick=function(){$("dlg").close()};
+  $("tipo").onchange=function(){$("endBox").hidden=$("tipo").value!=="entrega";renderResumo()};
+  $("pag").onchange=function(){$("trocoBox").hidden=$("pag").value!=="Dinheiro"};
+
+  $("enviar").onclick=function(){
+    var nome=$("nome").value.trim(),entrega=$("tipo").value==="entrega",end=$("end").value.trim();
+    if(!nome){$("err").textContent="Digite seu nome.";return}
+    if(entrega&&end.length<6){$("err").textContent="Digite o endereço de entrega.";return}
+    var taxa=entrega?TAXA_ENTREGA:0;
+    var L=["*NOVO PEDIDO – Tibas Lanche* 🍔","","*Cliente:* "+nome,"","*Itens:*"];
+    Object.keys(cart).forEach(function(id){var i=todos[id];L.push("• "+cart[id]+"x "+i.nome+" – "+brl(cart[id]*i.preco))});
+    L.push("");
+    if(taxa>0)L.push("*Taxa de entrega:* "+brl(taxa));
+    L.push("*Total:* "+brl(total()+taxa),"");
+    L.push(entrega?"*Entrega em:* "+end:"*Retirada no balcão*");
+    L.push("*Pagamento:* "+$("pag").value);
+    if($("pag").value==="Dinheiro"&&$("troco").value.trim())L.push("*Troco para:* R$ "+$("troco").value.trim());
+    if($("obs").value.trim())L.push("*Obs.:* "+$("obs").value.trim());
+    var url=(WHATSAPP?"https://wa.me/"+WHATSAPP+"?text=":"https://api.whatsapp.com/send?text=")+encodeURIComponent(L.join("\n"));
+    var w=null;try{w=window.open(url,"_blank")}catch(x){}
+    $("lkA").href=url;$("lk").hidden=!!w;
+    $("receiptControls").hidden=false;montarComprovante();
+  };
+
+  function montarComprovante(){
+    var nome=$("nome").value.trim()||"Cliente";
+    var entrega=$("tipo").value==="entrega";
+    var data=new Date();
+    var dataFmt=data.toLocaleDateString("pt-BR")+" "+data.toLocaleTimeString("pt-BR",{hour:"2-digit",minute:"2-digit"});
+    var itens=Object.keys(cart).map(function(id){
+      var i=todos[id];
+      return "<div class='receipt-line'><span>"+cart[id]+"x "+esc(i.nome)+"</span><strong>"+brl(cart[id]*i.preco)+"</strong></div>";
+    }).join("");
+    var taxa=entrega?TAXA_ENTREGA:0;
+    var end=entrega?("<div class='receipt-meta'><strong>Endereço:</strong> "+esc($("end").value.trim())+"</div>"):"";
+    var troco=($("pag").value==="Dinheiro"&&$("troco").value.trim())?("<div class='receipt-meta'><strong>Troco para:</strong> R$ "+esc($("troco").value.trim())+"</div>"):"";
+    var obs=$("obs").value.trim()?("<div class='receipt-meta'><strong>Observações:</strong> "+esc($("obs").value.trim())+"</div>"):"";
+    var conteudo="<div class='receipt'><div class='receipt-head'><div class='receipt-brand'>🍔 TIBAS LANCHE</div><div class='receipt-sub'>COMPROVANTE DE PEDIDO</div></div>"+
+      "<div class='receipt-meta'><strong>Data:</strong> "+dataFmt+"</div><div class='receipt-meta'><strong>Cliente:</strong> "+esc(nome)+"</div>"+
+      "<div class='receipt-meta'><strong>Recebimento:</strong> "+(entrega?"Entrega":"Retirada no balcão")+"</div>"+end+
+      "<div class='receipt-rule'></div><div class='receipt-title'>Itens do pedido</div>"+itens+"<div class='receipt-rule'></div>"+
+      (taxa>0?"<div class='receipt-line'><span>Taxa de entrega</span><strong>"+brl(taxa)+"</strong></div>":"")+
+      "<div class='receipt-total'><span>TOTAL</span><span>"+brl(total()+taxa)+"</span></div>"+
+      "<div class='receipt-meta' style='margin-top:10px'><strong>Pagamento:</strong> "+esc($("pag").value)+"</div>"+troco+obs+
+      "<div class='receipt-footer'>Obrigado pela preferência!<br>Tibas Lanche · Bom apetite 😋<br>Pedido enviado pelo WhatsApp</div></div>";
+    $("receiptPreview").innerHTML=conteudo;
+    $("printArea").innerHTML=conteudo;
+  }
+  $("imprimirComprovante").onclick=function(){montarComprovante();document.body.classList.add("receipt-printing");window.print();setTimeout(function(){document.body.classList.remove("receipt-printing")},500)};
+  $("atualizarComprovante").onclick=montarComprovante;
+  window.addEventListener("afterprint",function(){document.body.classList.remove("receipt-printing")});
+
+  // ===== Comprovante em imagem (PNG) para compartilhar =====
+  function wrapTxt(ctx,t,mw){var w=String(t).split(/\s+/),ls=[],c="";w.forEach(function(p){var tt=c?c+" "+p:p;if(ctx.measureText(tt).width>mw&&c){ls.push(c);c=p}else c=tt});if(c)ls.push(c);return ls}
+  function gerarImagem(){
+    var W=600,pad=34,entrega=$("tipo").value==="entrega",taxa=entrega?TAXA_ENTREGA:0;
+    var nome=$("nome").value.trim()||"Cliente",d=new Date();
+    var dataFmt=d.toLocaleDateString("pt-BR")+" "+d.toLocaleTimeString("pt-BR",{hour:"2-digit",minute:"2-digit"});
+    function draw(ctx){
+      var y=pad;ctx.textBaseline="top";
+      function par(t,font,color,align,gap){ctx.font=font;ctx.fillStyle=color;ctx.textAlign=align;wrapTxt(ctx,t,W-2*pad).forEach(function(s){ctx.fillText(s,align==="center"?W/2:pad,y);y+=gap||30})}
+      function rule(){y+=4;ctx.setLineDash([7,6]);ctx.strokeStyle="#777";ctx.lineWidth=2;ctx.beginPath();ctx.moveTo(pad,y);ctx.lineTo(W-pad,y);ctx.stroke();ctx.setLineDash([]);y+=18}
+      function row(l,r,bold,size){ctx.font=(bold?"bold ":"")+size+"px Arial";ctx.fillStyle="#171717";
+        wrapTxt(ctx,l,W-2*pad-160).forEach(function(s,k){ctx.textAlign="left";ctx.fillText(s,pad,y);if(k===0){ctx.textAlign="right";ctx.fillText(r,W-pad,y);ctx.textAlign="left"}y+=size+8})}
+      par("🍔 TIBAS LANCHE","bold 38px Arial","#171717","center",48);
+      par("COMPROVANTE DE PEDIDO","20px Arial","#555","center",30);rule();
+      par("Data: "+dataFmt,"22px Arial","#171717","left");
+      par("Cliente: "+nome,"22px Arial","#171717","left");
+      par("Recebimento: "+(entrega?"Entrega":"Retirada no balcão"),"22px Arial","#171717","left");
+      if(entrega)par("Endereço: "+$("end").value.trim(),"22px Arial","#171717","left");
+      rule();par("ITENS DO PEDIDO","bold 22px Arial","#171717","center",34);
+      Object.keys(cart).forEach(function(id){var i=todos[id];row(cart[id]+"x "+i.nome,brl(cart[id]*i.preco),false,22)});
+      rule();
+      if(taxa>0)row("Taxa de entrega",brl(taxa),false,22);
+      row("TOTAL",brl(total()+taxa),true,30);y+=8;
+      par("Pagamento: "+$("pag").value,"22px Arial","#171717","left");
+      if($("pag").value==="Dinheiro"&&$("troco").value.trim())par("Troco para: R$ "+$("troco").value.trim(),"22px Arial","#171717","left");
+      if($("obs").value.trim())par("Observações: "+$("obs").value.trim(),"22px Arial","#171717","left");
+      y+=6;rule();
+      par("Obrigado pela preferência!","18px Arial","#444","center",26);
+      par("Tibas Lanche · Bom apetite 😋","18px Arial","#444","center",26);
+      par("Pedido enviado pelo WhatsApp","18px Arial","#444","center",26);
+      return y+pad-10;
+    }
+    var H=Math.ceil(draw(document.createElement("canvas").getContext("2d")));
+    var c=document.createElement("canvas");c.width=W*2;c.height=H*2;
+    var ctx=c.getContext("2d");ctx.scale(2,2);ctx.fillStyle="#fff";ctx.fillRect(0,0,W,H);draw(ctx);
+    return c;
+  }
+  $("compartilharComprovante").onclick=async function(){
+    montarComprovante();
+    var c=gerarImagem();
+    var blob=await new Promise(function(r){c.toBlob(r,"image/png")});
+    var url=URL.createObjectURL(blob);
+    $("imgComp").src=url;$("baixarComp").href=url;$("imgBox").hidden=false;
+    var file=new File([blob],"comprovante-tibas-lanche.png",{type:"image/png"});
+    try{
+      if(navigator.canShare&&navigator.canShare({files:[file]})){
+        await navigator.share({files:[file],title:"Comprovante – Tibas Lanche"});
+        $("dica").textContent="Comprovante compartilhado ✔";return;
+      }
+    }catch(e){if(e&&e.name==="AbortError")return}
+    $("dica").textContent="Seu aparelho não abriu o compartilhamento. Toque em “Salvar imagem” (ou segure a imagem) e envie pelo WhatsApp.";
+  };
+
+  function ir(cat){busca="";$("q").value="";catAtual=cat;renderTabs();renderMenu();$("dm").classList.remove("on");window.scrollTo({top:0,behavior:"smooth"})}
+  document.querySelectorAll("[data-go]").forEach(function(a){a.addEventListener("click",function(e){e.preventDefault();ir(a.dataset.go)})});
+  $("home").onclick=function(e){e.preventDefault();ir(MENU[0].cat)};
+  $("dd").onclick=function(e){e.stopPropagation();$("dm").classList.toggle("on")};
+  document.addEventListener("click",function(){$("dm").classList.remove("on")});
+  $("q").oninput=function(){busca=this.value.toLowerCase().trim();renderMenu()};
+  $("pedir").onclick=function(){if(qtd()){$("abrir").click()}else{$("menu").scrollIntoView({behavior:"smooth"})}};
+  var root=document.documentElement;
+  var savedTheme=null;try{savedTheme=localStorage.getItem("tibas-theme")}catch(e){}
+  root.setAttribute("data-theme",savedTheme||"dark");
+  $("tema").onclick=function(){var next=root.getAttribute("data-theme")==="dark"?"light":"dark";root.setAttribute("data-theme",next);try{localStorage.setItem("tibas-theme",next)}catch(e){}$("tema").textContent=next==="dark"?"☼ Tema escuro":"☀ Tema claro"};
+  $("tema").textContent=root.getAttribute("data-theme")==="dark"?"☼ Tema escuro":"☀ Tema claro";
+  renderTabs();refresh();
+})();
+</script>
+</body>
+</html>
